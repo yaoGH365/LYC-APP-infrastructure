@@ -8,7 +8,7 @@ terraform {
   }
   backend "s3" {
     # 指定存储状态文件的 S3 存储桶名称
-    bucket = "lyc-app-bucket"
+    bucket = "lyc-app-bucket-2" #bucket name 全局唯一
     # 指定状态文件在存储桶中的路径和文件名
     key = "pipeline-terraform-statusfile/terraform.tfstate"
     # 指定 S3 存储桶所在的 AWS 区域
@@ -19,7 +19,7 @@ terraform {
 # 配置 AWS provider 和区域
 provider "aws" {
   # 配置 AWS 区域
-  region = "us-east-1"
+  # region = "us-east-1"  
   # 配置 AWS 访问密钥明码，用于身份验证
   # 注意：直接在代码中使用明码访问密钥是不安全的，建议使用环境变量或其他安全的方式传递这些敏感信息
 }
@@ -76,12 +76,12 @@ resource "aws_instance" "linux_instance" {
   # 实例类型
   instance_type = "t2.micro"
   # 密钥对名称
-  key_name = "LYC-APP"
+  key_name = "LYC-APP2"
   # IAM 实例配置文件
-  iam_instance_profile = "EC2CodeDeploy"
+  iam_instance_profile = "EC2CodeDeploy-new"
   # 实例标签
   tags = {
-    Name = "LYC-APP"
+    Name = "LYC-APP2"
   }
 
   # User Data写入如下脚本: 在实例启动时执行的脚本
