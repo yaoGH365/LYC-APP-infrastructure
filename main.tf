@@ -22,8 +22,6 @@ provider "aws" {
   region = "us-east-1"
   # 配置 AWS 访问密钥明码，用于身份验证
   # 注意：直接在代码中使用明码访问密钥是不安全的，建议使用环境变量或其他安全的方式传递这些敏感信息
-  access_key = ""
-  secret_key = ""
 }
 
 # 创建 EC2 安全组
@@ -96,7 +94,7 @@ resource "aws_instance" "linux_instance" {
               # 安装 Nginx
               yum install nginx -y
               
-              # 启动 Nginx
+              # 启动 Nginx 
               systemctl start nginx
               
               # 设置 Nginx 为开机自启
