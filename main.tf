@@ -8,7 +8,7 @@ terraform {
   }
   backend "s3" {
     # 指定存储状态文件的 S3 存储桶名称
-    bucket = "lyc-app-bucket-2" #bucket name 全局唯一
+    bucket = "new12345new12345" #bucket name 全局唯一
     # 指定状态文件在存储桶中的路径和文件名
     key = "pipeline-terraform-statusfile/terraform.tfstate"
     # 指定 S3 存储桶所在的 AWS 区域
